@@ -1,5 +1,4 @@
 import React from "react";
-import eventDetailsPage from "@/data/EventDetailsPage";
 
 import { Link } from "gatsby";
 import { Col, Container, Row } from "react-bootstrap";
@@ -7,10 +6,15 @@ import Sidebar from "./Sidebar";
 
 import Image from "../Image/Image";
 
-const { image, date, text3, texts, title, titleTwo, location } =
-  eventDetailsPage;
-
-const EventDetailsPage = () => {
+const EventDetailsPage = ({
+  image,
+  date,
+  text3,
+  texts,
+  title,
+  titleTwo,
+  location,
+}) => {
   return (
     <section className="sec-pad-top sec-pad-bottom events-details">
       <Container>

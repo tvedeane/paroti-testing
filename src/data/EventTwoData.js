@@ -1,4 +1,3 @@
-
 import { faClock, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 const eventTwoData = {
   tagLine: "Upcoming events",
@@ -26,8 +25,8 @@ const eventTwoData = {
         { id: 1, icon: faClock, cont: "8:00 pm" },
         { id: 2, icon: faMapMarkerAlt, cont: "New York" },
       ],
-      title: "Play for their world with us",
-      link: "/event-details",
+      title: "New Event!",
+      link: "/second-event",
     },
     {
       id: 3,

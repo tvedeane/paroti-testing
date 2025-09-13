@@ -1,5 +1,3 @@
-
-
 import {
   faTwitter,
   faFacebook,
@@ -75,6 +73,7 @@ const navItems = [
     subNavItems: [
       { id: 1, name: "Events", href: "/events" },
       { id: 2, name: "Events Details", href: "/event-details" },
+      { id: 3, name: "New Event", href: "/second-event" },
     ],
   },
   {
