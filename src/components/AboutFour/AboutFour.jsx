@@ -1,12 +1,14 @@
-
 import React, { Fragment, useState } from "react";
-import aboutFourData from "@/data/AboutFourData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Col, Container, Row } from "react-bootstrap";
 import VideoModal from "../VideoModal/VideoModal";
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
 const AboutFour = () => {
+  const { language } = useI18next();
+  const aboutFourData = getData(language, "AboutFourData");
   const [isOpen, setOpen] = useState(false);
   const {
     aboutShape,
@@ -20,12 +22,15 @@ const AboutFour = () => {
     videoId,
   } = aboutFourData;
   return (
-    <section className='sec-pad-top sec-pad-bottom about-four'>
-      <Image relativePath={aboutShape} className='float-bob-x about-four__shape' />
+    <section className="sec-pad-top sec-pad-bottom about-four">
+      <Image
+        relativePath={aboutShape}
+        className="float-bob-x about-four__shape"
+      />
       <Container>
-        <div className='sec-title text-center'>
-          <p className='sec-title__tagline'>{tagLine}</p>
-          <h2 className='sec-title__title'>
+        <div className="sec-title text-center">
+          <p className="sec-title__tagline">{tagLine}</p>
+          <h2 className="sec-title__title">
             {title.split("\n").map((t, i) => (
               <Fragment key={i}>
                 {t} <br />
@@ -34,19 +39,19 @@ const AboutFour = () => {
           </h2>
         </div>
 
-        <Row className='gutter-y-60'>
+        <Row className="gutter-y-60">
           <Col md={12} lg={6}>
             <div
-              className='about-four__image'
-              data-aos='fade-right'
-              data-aos-easing='linear'
-              data-aos-duration='1500'
+              className="about-four__image"
+              data-aos="fade-right"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
             >
               <Image relativePath={aboutImage} />
               <div
                 style={{ cursor: "pointer" }}
                 onClick={() => setOpen(true)}
-                className='video-popup about-four__video'
+                className="video-popup about-four__video"
               >
                 <i>
                   <FontAwesomeIcon icon={icon} />
@@ -55,18 +60,18 @@ const AboutFour = () => {
             </div>
           </Col>
           <Col md={12} lg={6}>
-            <div className='about-four__content'>
-              <div className='about-four__content__text'>{text}</div>
+            <div className="about-four__content">
+              <div className="about-four__content__text">{text}</div>
 
-              <ul className='list-unstyled about-four__list'>
+              <ul className="list-unstyled about-four__list">
                 {lists.map((list) => (
-                  <li key={list.id} className='about-four__list__item'>
+                  <li key={list.id} className="about-four__list__item">
                     <i>
                       <FontAwesomeIcon icon={list.icon} />
                     </i>
-                    <h3 className='about-four__list__title'>{list.title}</h3>
+                    <h3 className="about-four__list__title">{list.title}</h3>
 
-                    <p className='about-four__list__text'>{list.text}</p>
+                    <p className="about-four__list__text">{list.text}</p>
                   </li>
                 ))}
               </ul>

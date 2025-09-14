@@ -1,4 +1,9 @@
 import {
+  faCheckCircle,
+  faMapMarker,
+  faTag,
+} from "@fortawesome/free-solid-svg-icons";
+import {
   faFacebook,
   faInstagram,
   faPinterest,
@@ -39,17 +44,17 @@ export const donationsDetails = {
     lists: [
       {
         id: 1,
-        icon: "faCheckCircle",
+        icon: faCheckCircle,
         text: "Making this first true generator lorem",
       },
       {
         id: 2,
-        icon: "faCheckCircle",
+        icon: faCheckCircle,
         text: "Many desktop publish packages is not simply",
       },
       {
         id: 3,
-        icon: "faCheckCircle",
+        icon: faCheckCircle,
         text: "If you are going to passage has roots in a piece",
       },
     ],
@@ -102,8 +107,8 @@ export const sidebar = {
       date: "Created 20 Aug, 2022",
       name: "Mike Hardson",
       lists: [
-        { id: 1, icon: "faTag", text: "Health" },
-        { id: 2, icon: "faMapMarker", text: "New York, USA" },
+        { id: 1, icon: faTag, text: "Health" },
+        { id: 2, icon: faMapMarker, text: "New York, USA" },
       ],
     },
   ],
@@ -143,3 +148,5 @@ export const sidebar = {
     },
   ],
 };
+
+export default donationsDetails;

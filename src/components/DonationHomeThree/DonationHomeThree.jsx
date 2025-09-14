@@ -1,11 +1,12 @@
-
 import React, { useEffect, useState } from "react";
-import donationHomeThreeData from "@/data/DonationHomeThreeData";
 import { Container } from "react-bootstrap";
-import loadable from "@loadable/component"
+import loadable from "@loadable/component";
 import { Link } from "gatsby";
 import Progress from "../Progress/Progress";
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
@@ -35,6 +36,8 @@ const settings = {
 };
 
 const DonationHomeThree = () => {
+  const { language } = useI18next();
+  const donationHomeThreeData = getData(language, "DonationHomeThreeData");
   const { tagLine, title, carouselData } = donationHomeThreeData;
   const [isMount, setIsMount] = useState(false);
   useEffect(() => {
@@ -46,50 +49,50 @@ const DonationHomeThree = () => {
   }
 
   return (
-    <section className='sec-pad-top sec-pad-bottom donation-home-3'>
+    <section className="sec-pad-top sec-pad-bottom donation-home-3">
       <div
-        className='donation-home-3__shape '
-        data-aos='slide-dowm'
-        data-aos-easing='linear'
-        data-aos-duration='1500'
+        className="donation-home-3__shape "
+        data-aos="slide-dowm"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
       ></div>
       <Container>
-        <div className='sec-title text-center'>
-          <p className='sec-title__tagline'>{tagLine}</p>
+        <div className="sec-title text-center">
+          <p className="sec-title__tagline">{tagLine}</p>
 
-          <h2 className='sec-title__title'>{title}</h2>
+          <h2 className="sec-title__title">{title}</h2>
         </div>
         <TinySlider settings={settings}>
           {carouselData.map((carousel) => (
-            <div className='item' key={carousel.id}>
+            <div className="item" key={carousel.id}>
               <div
-                className='donations-card'
+                className="donations-card"
                 style={{ "--accent-color": carousel.accentColor }}
               >
-                <div className='donations-card__image'>
+                <div className="donations-card__image">
                   <Image
                     style={{
                       width: "100%",
                       height: "auto",
                     }}
                     relativePath={carousel.image}
-                    alt=''
+                    alt=""
                   />
 
-                  <div className='donations-card__category'>
-                    <a href='#'>{carousel.category}</a>
+                  <div className="donations-card__category">
+                    <a href="#">{carousel.category}</a>
                   </div>
                 </div>
 
-                <div className='donations-card__content'>
-                  <h3 className='donations-card__title'>
-                    <Link to='/donations-details'>{carousel.title}</Link>
+                <div className="donations-card__content">
+                  <h3 className="donations-card__title">
+                    <Link to="/donations-details">{carousel.title}</Link>
                   </h3>
 
-                  <p className='donations-card__text'>{carousel.text}</p>
+                  <p className="donations-card__text">{carousel.text}</p>
                   <Progress percent={carousel.count} />
 
-                  <div className='donations-card__amount'>
+                  <div className="donations-card__amount">
                     {carousel.amounts?.map((amount) => (
                       <p key={amount.id}>
                         <span>${amount.amount}</span> {amount.desc}

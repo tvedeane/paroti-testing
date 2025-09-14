@@ -3,18 +3,15 @@ import React from "react";
 import { Link } from "gatsby";
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "./Sidebar";
-
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
-const EventDetailsPage = ({
-  image,
-  date,
-  text3,
-  texts,
-  title,
-  titleTwo,
-  location,
-}) => {
+const EventDetailsPage = () => {
+  const { language } = useI18next();
+  const eventDetailsData = getData(language, "EventDetailsPage");
+  const { image, date, text3, texts, title, titleTwo, location } =
+    eventDetailsData;
   return (
     <section className="sec-pad-top sec-pad-bottom events-details">
       <Container>

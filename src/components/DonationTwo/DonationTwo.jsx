@@ -1,9 +1,11 @@
 "use client";
-import donationTwoData from "@/data/DonationTwo";
 import React, { Suspense, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleDonationTwo from "./SingleDonationTwo";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
@@ -30,6 +32,8 @@ const settings = {
   },
 };
 const DonationTwo = () => {
+  const { language } = useI18next();
+  const donationTwoData = getData(language, "DonationTwo");
   const { tagLine, text, title, carouselData } = donationTwoData;
   const [mounted, setMounted] = useState(false);
 
@@ -39,20 +43,20 @@ const DonationTwo = () => {
 
   if (!mounted) return null;
   return (
-    <section className='sec-pad-top sec-pad-bottom donation-two'>
+    <section className="sec-pad-top sec-pad-bottom donation-two">
       <Container>
-        <Row className='gutter-y-60'>
+        <Row className="gutter-y-60">
           <Col md={12} lg={4}>
-            <div className='sec-title'>
-              <p className='sec-title__tagline'>{tagLine}</p>
+            <div className="sec-title">
+              <p className="sec-title__tagline">{tagLine}</p>
 
-              <h2 className='sec-title__title'>{title}</h2>
+              <h2 className="sec-title__title">{title}</h2>
             </div>
 
-            <p className='donation-two__text'>{text}</p>
+            <p className="donation-two__text">{text}</p>
           </Col>
           <Col md={12} lg={6}>
-            <div className='donation-two__carousel'>
+            <div className="donation-two__carousel">
               <Suspense fallback={<div>Loading...</div>}>
                 <TinySlider settings={settings}>
                   {carouselData.map((carousel) => (
@@ -60,7 +64,6 @@ const DonationTwo = () => {
                   ))}
                 </TinySlider>
               </Suspense>
-
             </div>
           </Col>
         </Row>

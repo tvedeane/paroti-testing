@@ -1,11 +1,12 @@
-
 import React, { Suspense, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 
-import sponsorData from "@/data/SponsorsData";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
 import bg from "@/assets/images/shapes/sponsor-bg-1-1.png";
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
@@ -47,6 +48,9 @@ const settings = {
 };
 
 const Sponsors = ({ title }) => {
+  const { language } = useI18next();
+  const sponsorData = getData(language, "SponsorsData");
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -55,30 +59,29 @@ const Sponsors = ({ title }) => {
   if (!mounted) return null;
   return (
     <section
-      className={`sec-pad-top sec-pad-bottom sponsor-carousel ${title === "homeTwo"
-        ? "sponsor-carousel--home-2"
-        : title === "homeThree"
+      className={`sec-pad-top sec-pad-bottom sponsor-carousel ${
+        title === "homeTwo"
+          ? "sponsor-carousel--home-2"
+          : title === "homeThree"
           ? "sponsor-carousel--home-3"
           : ""
-        }`}
+      }`}
       style={title === "homeThree" ? { backgroundImage: `url(${bg})` } : {}}
     >
       <Container>
         <Suspense fallback={<div>Loading...</div>}>
           <TinySlider
-            className='thm-tns__carousel'
-            id='sponsor-carousel-1'
+            className="thm-tns__carousel"
+            id="sponsor-carousel-1"
             settings={settings}
           >
             {sponsorData.map((sponsor) => (
-              <div key={sponsor.id} className='item'>
+              <div key={sponsor.id} className="item">
                 <Image relativePath={sponsor.image} />
-
               </div>
             ))}
           </TinySlider>
         </Suspense>
-
       </Container>
     </section>
   );

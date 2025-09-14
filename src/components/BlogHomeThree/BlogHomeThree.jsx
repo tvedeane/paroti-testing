@@ -3,13 +3,17 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import SingleBlogHome from "./SingleBlogHome";
-import blogData from "@/data/BlogData";
-import loadable from '@loadable/component'
+import loadable from "@loadable/component";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
 
 const BlogHomeThree = () => {
+  const { language } = useI18next();
+  const blogData = getData(language, "BlogData");
   const { tagLine, title, carouselData } = blogData;
   const [mounted, setMounted] = useState(false);
   const settings = {
@@ -54,17 +58,17 @@ const BlogHomeThree = () => {
 
   if (!mounted) return null;
   return (
-    <section className='sec-pad-top blog-home-3'>
+    <section className="sec-pad-top blog-home-3">
       <Container>
-        <div className='sec-title text-center'>
-          <p className='sec-title__tagline'>{tagLine}</p>
-          <h2 className='sec-title__title'>{title}</h2>
+        <div className="sec-title text-center">
+          <p className="sec-title__tagline">{tagLine}</p>
+          <h2 className="sec-title__title">{title}</h2>
         </div>
-        <div className='blog-carousel'>
+        <div className="blog-carousel">
           <TinySlider
             settings={settings}
-            className='thm-tns__carousel'
-            id='blog-carousel-1'
+            className="thm-tns__carousel"
+            id="blog-carousel-1"
           >
             {carouselData.map((carousel, index) => (
               <SingleBlogHome

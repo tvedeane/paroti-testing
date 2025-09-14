@@ -1,27 +1,30 @@
 import React, { Fragment } from "react";
-import aboutThreedata from "@/data/AboutThreeData";
 
 import { Col, Container, Row } from "react-bootstrap";
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
 const AboutThree = () => {
+  const { language } = useI18next();
+  const aboutThreedata = getData(language, "AboutThreeData");
   const { image, lists, tagLine, text, title } = aboutThreedata;
   return (
-    <section className='about-three'>
+    <section className="about-three">
       <div
-        className='about-three__shape'
-        data-aos='slide-right'
-        data-aos-easing='linear'
-        data-aos-duration='1500'
+        className="about-three__shape"
+        data-aos="slide-right"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
       ></div>
 
       <Container>
-        <Row className='gutter-y-60'>
+        <Row className="gutter-y-60">
           <Col md={12} lg={5}>
-            <div className='about-three__content'>
-              <div className='sec-title'>
-                <p className='sec-title__tagline'>{tagLine}</p>
-                <h2 className='sec-title__title'>
+            <div className="about-three__content">
+              <div className="sec-title">
+                <p className="sec-title__tagline">{tagLine}</p>
+                <h2 className="sec-title__title">
                   {title.split("\n").map((t, i) => (
                     <Fragment key={i}>
                       {t} <br />
@@ -29,28 +32,28 @@ const AboutThree = () => {
                   ))}
                 </h2>
               </div>
-              <div className='about-three__text'>{text}</div>
-              <ul className='about-three__list list-unstyled'>
+              <div className="about-three__text">{text}</div>
+              <ul className="about-three__list list-unstyled">
                 {lists.map((list) => (
                   <li
                     key={list.id}
-                    className='about-three__list__item'
+                    className="about-three__list__item"
                     style={{ "--accent-color": list.accentColor }}
                   >
-                    <div className='about-three__list__icon'>
+                    <div className="about-three__list__icon">
                       <i className={list.icon}></i>
                     </div>
-                    <h3 className='about-three__list__title'>{list.title}</h3>
+                    <h3 className="about-three__list__title">{list.title}</h3>
 
-                    <p className='about-three__list__text'>{list.text}</p>
+                    <p className="about-three__list__text">{list.text}</p>
                   </li>
                 ))}
               </ul>
             </div>
           </Col>
           <Col md={12} lg={7}>
-            <div className='about-three__image'>
-              <Image relativePath={image} alt='' />
+            <div className="about-three__image">
+              <Image relativePath={image} alt="" />
             </div>
           </Col>
         </Row>

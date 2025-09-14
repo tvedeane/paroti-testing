@@ -1,4 +1,3 @@
-import information from "@/data/information";
 import {
   faEnvelopeOpen,
   faMap,
@@ -7,27 +6,32 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Fragment } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-const { bg, address, phones, mails } = information;
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const ContactInfo = () => {
+  const { language } = useI18next();
+  const information = getData(language, "information");
+  const { bg, address, phones, mails } = information;
   return (
-    <section className='contact-info'>
+    <section className="contact-info">
       <Container>
         <div
-          className='contact-info__inner'
-          data-aos='fade-up'
-          data-aos-easing='linear'
-          data-aos-duration='1500'
+          className="contact-info__inner"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
           style={{ backgroundImage: `url(${bg})` }}
         >
-          <Row className='gutter-y-30'>
+          <Row className="gutter-y-30">
             <Col md={12} lg={4}>
-              <div className='contact-info__item'>
-                <div className='contact-info__icon'>
+              <div className="contact-info__item">
+                <div className="contact-info__icon">
                   <i>
                     <FontAwesomeIcon icon={faEnvelopeOpen} />
                   </i>
                 </div>
-                <p className='contact-info__text'>
+                <p className="contact-info__text">
                   {mails.map((mail, index) => (
                     <Fragment key={index}>
                       <a
@@ -43,13 +47,13 @@ const ContactInfo = () => {
               </div>
             </Col>
             <Col md={12} lg={4}>
-              <div className='contact-info__item'>
-                <div className='contact-info__icon'>
+              <div className="contact-info__item">
+                <div className="contact-info__icon">
                   <i>
                     <FontAwesomeIcon icon={faMap} />
                   </i>
                 </div>
-                <p className='contact-info__text'>
+                <p className="contact-info__text">
                   {address.split("\n").map((t, i) => (
                     <Fragment key={i}>
                       <span>{t}</span> <br />
@@ -59,13 +63,13 @@ const ContactInfo = () => {
               </div>
             </Col>
             <Col md={12} lg={4}>
-              <div className='contact-info__item'>
-                <div className='contact-info__icon'>
+              <div className="contact-info__item">
+                <div className="contact-info__icon">
                   <i>
                     <FontAwesomeIcon icon={faMobile} />
                   </i>
                 </div>
-                <p className='contact-info__text'>
+                <p className="contact-info__text">
                   {phones.map((phone, index) => (
                     <Fragment key={index}>
                       <a

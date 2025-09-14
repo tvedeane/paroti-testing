@@ -1,16 +1,18 @@
-
 import React, { Fragment, useEffect, useState } from "react";
 
-import sliderThreeData from "@/data/SliderThreeData";
 import { Container } from "react-bootstrap";
 import { Link } from "gatsby";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 // Lazy load the TinySlider component
 const TinySlider = loadable(() => import("tiny-slider-react"));
 const SliderThree = () => {
+  const { language } = useI18next();
+  const sliderThreeData = getData(language, "SliderThreeData");
   const [mounted, setMounted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  
 
   useEffect(() => {
     setMounted(true);
@@ -45,29 +47,29 @@ const SliderThree = () => {
     onIndexChanged: (current) => setCurrentSlide(current),
   };
   return (
-    <section className='slider-one slider-three position-relative overflow-hidden'>
-      <div className='tns-controls'>
-        <button className='tns-prev'>
-          <span className='paroti-icon-left-arrow'></span>
+    <section className="slider-one slider-three position-relative overflow-hidden">
+      <div className="tns-controls">
+        <button className="tns-prev">
+          <span className="paroti-icon-left-arrow"></span>
         </button>
-        <button className='tns-next'>
-          <span className='paroti-icon-right-arrow'></span>
+        <button className="tns-next">
+          <span className="paroti-icon-right-arrow"></span>
         </button>
       </div>
 
       <TinySlider settings={settings}>
         {sliderThreeData.map((data, index) => (
-          <div key={data.id} className='item'>
-            <div className='slider-one__item'>
+          <div key={data.id} className="item">
+            <div className="slider-one__item">
               <div
-                className='slider-one__image'
+                className="slider-one__image"
                 style={{ backgroundImage: `url(${data.bg && data.bg})` }}
               ></div>
 
               <Container>
-                <p className='slider-one__text'>{data.text}</p>
+                <p className="slider-one__text">{data.text}</p>
 
-                <h2 className='slider-one__title'>
+                <h2 className="slider-one__title">
                   {data.title.split("\n").map((t, i) => (
                     <Fragment key={i}>
                       {t} <br />
@@ -75,8 +77,8 @@ const SliderThree = () => {
                   ))}
                 </h2>
 
-                <div className='slider-one__btns'>
-                  <Link to='/about' className='thm-btn slider-one__btn'>
+                <div className="slider-one__btns">
+                  <Link to="/about" className="thm-btn slider-one__btn">
                     <span>Discover More</span>{" "}
                   </Link>
                 </div>

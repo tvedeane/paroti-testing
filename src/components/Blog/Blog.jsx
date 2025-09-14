@@ -1,9 +1,10 @@
-
 import React, { Suspense, useEffect, useState } from "react";
-import blogData from "@/data/BlogData";
 import { Container } from "react-bootstrap";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
 import SingleBlog from "./SingleBlog";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
@@ -44,6 +45,8 @@ const settings = {
 };
 
 const Blog = () => {
+  const { language } = useI18next();
+  const blogData = getData(language, "BlogData");
   const { tagLine, title, carouselData } = blogData;
   const [mounted, setMounted] = useState(false);
 
@@ -53,29 +56,25 @@ const Blog = () => {
 
   if (!mounted) return null;
   return (
-    <section className='sec-pad-top sec-pad-bottom'>
+    <section className="sec-pad-top sec-pad-bottom">
       <Container>
-        <div className='sec-title text-center'>
-          <p className='sec-title__tagline'>{tagLine}</p>
+        <div className="sec-title text-center">
+          <p className="sec-title__tagline">{tagLine}</p>
 
-          <h2 className='sec-title__title'>{title}</h2>
+          <h2 className="sec-title__title">{title}</h2>
         </div>
-        <div className='blog-carousel'>
+        <div className="blog-carousel">
           <Suspense fallback={<div>Loading...</div>}>
             <TinySlider
               settings={settings}
-              className='thm-tns__carousel'
-              id='blog-carousel-1'
+              className="thm-tns__carousel"
+              id="blog-carousel-1"
             >
-              {carouselData.map((carousel, index) =>
-
-
+              {carouselData.map((carousel, index) => (
                 <SingleBlog key={carousel.id} carousel={carousel} />
-
-              )}
+              ))}
             </TinySlider>
           </Suspense>
-
         </div>
       </Container>
     </section>

@@ -15,6 +15,31 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        languages: [`en`, `pl`],
+        defaultLanguage: `en`,
+        localeJsonSourceName: `locale`,
+        siteUrl:
+          process.env.URL ||
+          process.env.GATSBY_SITE_URL ||
+          `http://localhost:8000`,
+        trailingSlash: "always",
+        redirect: false,
+        //siteUrl: `https://example.com`,
+        i18nextOptions: {
+          interpolation: { escapeValue: false },
+        },
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -37,4 +62,4 @@ module.exports = {
       },
     },
   ],
-}
+};

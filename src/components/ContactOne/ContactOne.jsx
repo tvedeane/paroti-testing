@@ -1,13 +1,16 @@
 import React from "react";
 
-import contactPage from "@/data/ContactPage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Col, Container, Row } from "react-bootstrap";
-const { tagline, title, socials, text } = contactPage;
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
 const inputs = ["name", "email", "message"];
 const ContactOne = () => {
+  const { language } = useI18next();
+  const contactPage = getData(language, "ContactPage");
+  const { tagline, title, socials, text } = contactPage;
   const handleSubmit = (e) => {
     e.preventDefault();
     const fromData = new FormData(e.target);
@@ -16,16 +19,16 @@ const ContactOne = () => {
     console.log(data);
   };
   return (
-    <section className='sec-pad-top sec-pad-bottom contact-one'>
+    <section className="sec-pad-top sec-pad-bottom contact-one">
       <Container>
-        <Row className='gutter-y-60'>
+        <Row className="gutter-y-60">
           <Col lg={4}>
-            <div className='sec-title'>
-              <p className='sec-title__tagline'>{tagline}</p>
-              <h2 className='sec-title__title'>{title}</h2>
+            <div className="sec-title">
+              <p className="sec-title__tagline">{tagline}</p>
+              <h2 className="sec-title__title">{title}</h2>
             </div>
-            <p className='contact-one__text'>{text}</p>
-            <div className='contact-one__social'>
+            <p className="contact-one__text">{text}</p>
+            <div className="contact-one__social">
               {socials.map((social) => (
                 <a key={social.id} href={social.href}>
                   <i>
@@ -37,31 +40,31 @@ const ContactOne = () => {
           </Col>
           <Col lg={8}>
             <form
-              action='#'
+              action="#"
               onSubmit={handleSubmit}
-              className='contact-one__form contact-form-validated'
+              className="contact-one__form contact-form-validated"
             >
               <Row>
                 <Col md={6}>
-                  <input type='text' placeholder='Your name' name='name' />
+                  <input type="text" placeholder="Your name" name="name" />
                 </Col>
                 <Col md={6}>
-                  <input type='text' placeholder='Email address' name='email' />
+                  <input type="text" placeholder="Email address" name="email" />
                 </Col>
                 <Col md={12}>
                   <textarea
-                    name='message'
-                    placeholder='Write a message'
+                    name="message"
+                    placeholder="Write a message"
                   ></textarea>
                 </Col>
                 <Col ms={12}>
-                  <button type='submit' className='thm-btn contact-one__btn'>
+                  <button type="submit" className="thm-btn contact-one__btn">
                     <span>Send message</span>
                   </button>
                 </Col>
               </Row>
             </form>
-            <div className='result'></div>
+            <div className="result"></div>
           </Col>
         </Row>
       </Container>

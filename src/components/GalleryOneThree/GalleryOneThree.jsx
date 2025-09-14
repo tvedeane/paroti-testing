@@ -1,12 +1,13 @@
-
 import React, { useEffect, useState } from "react";
-import galleryThreeData from "@/data/GalleryThreeData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import loadable from "@loadable/component";
 
 import { Container } from "react-bootstrap";
 import Modal from "../GalleryOne/Modal";
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
@@ -17,7 +18,7 @@ const settings = {
   autoplay: true,
   autoplayTimeout: 6000,
   loop: true,
-  rewind:true,
+  rewind: true,
   autoplayHoverPause: true,
   mouseDrag: true,
   touch: true,
@@ -44,6 +45,8 @@ const settings = {
 };
 
 const GalleryOneThree = () => {
+  const { language } = useI18next();
+  const galleryThreeData = getData(language, "GalleryThreeData");
   const [mounted, setMounted] = useState(false);
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -93,18 +96,22 @@ const GalleryOneThree = () => {
 
   if (!mounted) return null;
   return (
-    <section className='gallery-one gallery-one--home-3'>
+    <section className="gallery-one gallery-one--home-3">
       <Container fluid>
-        <TinySlider className='gallery-one__carousel' settings={settings}>
+        <TinySlider className="gallery-one__carousel" settings={settings}>
           {galleryThreeData.map((galleryOne, index) => (
-            <div key={galleryOne.id} className='item'>
-              <div className='gallery-card'>
-                <div className='gallery-card__image'>
-                  <Image className='img-h-auto' relativePath={galleryOne.image} alt='' />
+            <div key={galleryOne.id} className="item">
+              <div className="gallery-card">
+                <div className="gallery-card__image">
+                  <Image
+                    className="img-h-auto"
+                    relativePath={galleryOne.image}
+                    alt=""
+                  />
                 </div>
 
-                <div className='gallery-card__content'>
-                  <a className='img-popup'>
+                <div className="gallery-card__content">
+                  <a className="img-popup">
                     <i>
                       <FontAwesomeIcon
                         icon={galleryOne.icon}

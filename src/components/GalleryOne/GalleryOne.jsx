@@ -1,6 +1,5 @@
 "use client";
 
-import galleryOneData from "@/data/GalleryOneData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import React, { useEffect, useState } from "react";
@@ -8,6 +7,8 @@ import { Container } from "react-bootstrap";
 import Modal from "./Modal";
 import Slider from "react-slick";
 import Image from "../Image/Image";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
 var settings = {
   dots: false,
@@ -47,6 +48,8 @@ var settings = {
 };
 
 const GalleryOne = () => {
+  const { language } = useI18next();
+  const galleryOneData = getData(language, "GalleryOneData");
   const [mounted, setMounted] = useState(false);
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -96,25 +99,25 @@ const GalleryOne = () => {
 
   if (!mounted) return null;
   return (
-    <section className='gallery-one'>
+    <section className="gallery-one">
       <Container>
-        <Slider {...settings} className='gallery-one__carousel'>
+        <Slider {...settings} className="gallery-one__carousel">
           {galleryOneData.map((galleryOne, index) => (
-            <div key={galleryOne.id} className='item p-3'>
-              <div className='gallery-card'>
-                <div className='gallery-card__image'>
+            <div key={galleryOne.id} className="item p-3">
+              <div className="gallery-card">
+                <div className="gallery-card__image">
                   <Image
                     style={{
                       width: "100%",
                       height: "auto",
                     }}
                     relativePath={galleryOne.image}
-                    alt=''
+                    alt=""
                   />
                 </div>
 
-                <div className='gallery-card__content'>
-                  <a className='img-popup' style={{ cursor: "pointer" }}>
+                <div className="gallery-card__content">
+                  <a className="img-popup" style={{ cursor: "pointer" }}>
                     <i>
                       <FontAwesomeIcon
                         icon={galleryOne.icon}

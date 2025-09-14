@@ -1,10 +1,13 @@
 import React from "react";
-import { sidebar } from "@/data/EventDetailsPage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const { socials } = sidebar;
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
 const Sidebar = ({ date, location }) => {
+  const { language } = useI18next();
+  const sidebar = getData(language, "EventDetailsPage", "sidebar");
+  const { socials } = sidebar;
+
   return (
     <div className="events-details__sidebar">
       <div className="events-details__sidebar__single">

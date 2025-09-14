@@ -1,4 +1,3 @@
-
 import React from "react";
 import AboutTwo from "@/components/AboutTwo/AboutTwo";
 import Blog from "@/components/Blog/Blog";
@@ -13,12 +12,11 @@ import SliderOne from "@/components/SliderOne/SliderOne";
 import Sponsors from "@/components/Sponsors/Sponsors";
 import TestimonialOne from "@/components/TestimonialOne/TestimonialOne";
 import VideoOne from "@/components/VideoOne/VideoOne";
-
-
+import { graphql } from "gatsby";
 
 const HomeOne = () => {
   return (
-    <Layout PageTitle="Home One" >
+    <Layout PageTitle="Home One">
       <SliderOne />
       <AboutTwo />
       <DonationTwo />
@@ -32,8 +30,21 @@ const HomeOne = () => {
       <Blog />
       <NewsLetterOne />
     </Layout>
-  )
-}
+  );
+};
 
+export default HomeOne;
 
-export default HomeOne
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

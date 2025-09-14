@@ -1,24 +1,22 @@
-
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import SingleCarousel from "./SingleCarousel";
-import donationCarouserData from "@/data/DonationCarouselData";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
-
-
 const DonationCarousel = () => {
+  const { language } = useI18next();
+  const donationCarouserData = getData(language, "DonationCarouselData");
   const [mounted, setMounted] = useState(false);
   const { tagLine, title, carouselData } = donationCarouserData;
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-
-
 
   if (!mounted) return null;
 
@@ -59,28 +57,27 @@ const DonationCarousel = () => {
   };
 
   return (
-    <section className='sec-pad-top sec-pad-bottom'>
+    <section className="sec-pad-top sec-pad-bottom">
       <Container>
-        <div className='sec-title'>
-          <p className='sec-title__tagline'>{tagLine}</p>
+        <div className="sec-title">
+          <p className="sec-title__tagline">{tagLine}</p>
 
-          <h2 className='sec-title__title'>{title}</h2>
+          <h2 className="sec-title__title">{title}</h2>
         </div>
-        <div className='donations-carousel'>
-
+        <div className="donations-carousel">
           <TinySlider
-
-            className='thm-tns__carousel'
-            id='donations-carousel-1'
+            className="thm-tns__carousel"
+            id="donations-carousel-1"
             settings={settings}
-
           >
             {carouselData.map((carousel, index) => (
-              <SingleCarousel key={carousel.id} carousel={carousel} index={index} />
+              <SingleCarousel
+                key={carousel.id}
+                carousel={carousel}
+                index={index}
+              />
             ))}
           </TinySlider>
-
-
         </div>
       </Container>
     </section>

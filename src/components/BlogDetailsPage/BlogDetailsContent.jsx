@@ -6,30 +6,32 @@ import { Link } from "gatsby";
 import Author from "./Author";
 import Comments from "./Comments";
 import CommentsForm from "./CommentsForm";
-import blogDetailsPage from "@/data/BlogDetailsPage";
 import Image from "../Image/Image";
-const {
-  image,
-  date,
-  author,
-  totalComments,
-  title,
-  texts,
-  tags,
-  socials,
-  authorData,
-  comments,
-} = blogDetailsPage;
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
 
 const BlogDetailsContent = () => {
+  const { language } = useI18next();
+  const blogDetailsPage = getData(language, "BlogDetailsPage");
+  const {
+    image,
+    date,
+    author,
+    totalComments,
+    title,
+    texts,
+    tags,
+    socials,
+    authorData,
+    comments,
+  } = blogDetailsPage;
   return (
     <>
-      <div className='blog-details__content clearfix'>
-        <div className='blog-details__image'>
+      <div className="blog-details__content clearfix">
+        <div className="blog-details__image">
           <Image relativePath={image} />
 
-
-          <div className='blog-card__date'>
+          <div className="blog-card__date">
             {date.split(" ").map((t, i) => (
               <Fragment key={i}>
                 <span>{t}</span>
@@ -37,35 +39,35 @@ const BlogDetailsContent = () => {
             ))}
           </div>
         </div>
-        <ul className='blog-card__meta list-unstyled'>
+        <ul className="blog-card__meta list-unstyled">
           <li>
             <i>
               <FontAwesomeIcon icon={faUser} />
             </i>
-            <a href='#'>by {author}</a>
+            <a href="#">by {author}</a>
           </li>
           <li>
             <i>
               <FontAwesomeIcon icon={faComments} />
             </i>
-            <a to='#'>{totalComments} comments</a>
+            <a to="#">{totalComments} comments</a>
           </li>
         </ul>
-        <h3 className='blog-card__title'>{title}</h3>
+        <h3 className="blog-card__title">{title}</h3>
         {texts.map((text, index) => (
           <p key={index}>{text}</p>
         ))}
       </div>
-      <div className='blog-details__bottom'>
-        <p className='blog-details__tags'>
+      <div className="blog-details__bottom">
+        <p className="blog-details__tags">
           <span>Tags</span>
           {tags.map((tag, i) => (
-            <a key={i} href='#'>
+            <a key={i} href="#">
               {tag}
             </a>
           ))}
         </p>
-        <div className='blog-details__social'>
+        <div className="blog-details__social">
           {socials.map(({ id, icon, href }) => (
             <a href={href} key={id}>
               <i>

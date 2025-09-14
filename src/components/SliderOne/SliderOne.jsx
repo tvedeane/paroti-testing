@@ -1,14 +1,17 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "gatsby";
-import mainSliderData from "@/data/MainSliderData";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { getData } from "@/utils/getData";
+
 // Lazy load the TinySlider component
 const TinySlider = loadable(() => import("tiny-slider-react"));
 
 const SliderOne = () => {
+  const { language } = useI18next();
+  const mainSliderData = getData(language, "MainSliderData");
   const [mounted, setMounted] = useState(false);
-
 
   useEffect(() => {
     setMounted(true);
@@ -40,7 +43,6 @@ const SliderOne = () => {
     gutter: 0,
     autoplayButton: false,
     autoplayButtonOutput: false,
-
   };
 
   return (
