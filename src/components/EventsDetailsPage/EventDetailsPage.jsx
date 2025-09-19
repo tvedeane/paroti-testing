@@ -7,9 +7,13 @@ import Image from "../Image/Image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { getData } from "@/utils/getData";
 
-const EventDetailsPage = () => {
+const EventDetailsPage = ({ eventFilename }) => {
   const { language } = useI18next();
-  const eventDetailsData = getData(language, "EventDetailsPage");
+  if (eventFilename === undefined) {
+    eventFilename = "EventDetailsPage";
+  }
+  const eventDetailsData = getData(language, eventFilename);
+  console.log({ eventFilename, eventDetailsData });
   const { image, date, text3, texts, title, titleTwo, location } =
     eventDetailsData;
   return (
