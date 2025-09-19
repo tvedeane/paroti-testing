@@ -1,9 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
 import { Col, Container, Row } from "react-bootstrap";
 import Image from "../Image/Image";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import { useI18next, Link } from "gatsby-plugin-react-i18next";
 import { getData } from "@/utils/getData";
 
 const Events = () => {
