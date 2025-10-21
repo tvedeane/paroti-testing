@@ -1,0 +1,8 @@
+1. Open terminal
+2. Move to the location of the project:
+cd Strona\ Etno
+3. Run the page:
+gatsby develop
+
+When need to finish in terminal press:
+ctrl + c
