@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 import Progress from "../Progress/Progress";
 import Image from "../Image/Image";

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import loadable from "@loadable/component";
 import bg from "@/assets/images/shapes/slider-two-bg-1-1.png";
 import { Container } from "react-bootstrap";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { getData } from "@/utils/getData";
 

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { faComments, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import Author from "./Author";
 import Comments from "./Comments";
 import CommentsForm from "./CommentsForm";

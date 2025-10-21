@@ -2,7 +2,7 @@
 import React, { Suspense } from "react";
 import ctaS from "@/assets/images/shapes/cta-s-1-1.png";
 import ctaBg from "@/assets/images/backgrounds/cta-bg-1-1.jpg";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import JarallaxImage from "../Jarallax/JarallaxImage";
 import loadable from '@loadable/component';
 import { Container } from "react-bootstrap";

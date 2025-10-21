@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import Image from "../Image/Image";
 
 const Comments = ({ comments = [] }) => {

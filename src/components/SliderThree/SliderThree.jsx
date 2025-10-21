@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import { Container } from "react-bootstrap";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import loadable from "@loadable/component";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { getData } from "@/utils/getData";

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import Image from "../Image/Image";
 
 const SingleBlog = ({ carousel }) => {

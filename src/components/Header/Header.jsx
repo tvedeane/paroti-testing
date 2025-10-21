@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Topbar from "../Topbar/Topbar";
 import NavItems from "./NavItems";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import { useLocation } from "@reach/router";
 import { useRootContext } from "@/Provider/context";
 import useScroll from "@/hooks/useScroll";

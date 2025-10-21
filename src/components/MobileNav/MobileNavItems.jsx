@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SubNavItems from "./SubNavItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import { useLocation } from '@reach/router';
 
 const MobileNavItems = ({ navItem = {} }) => {

@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 import React, { Fragment } from "react";
 import { Col, Container, Row } from "react-bootstrap";

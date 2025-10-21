@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import loadable from "@loadable/component";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import Progress from "../Progress/Progress";
 import Image from "../Image/Image";
 import { useI18next } from "gatsby-plugin-react-i18next";

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import Progress from "../Progress/Progress";

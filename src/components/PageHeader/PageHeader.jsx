@@ -1,7 +1,7 @@
 import React from "react";
 import bg from "@/assets/images/backgrounds/page-header-1-1.jpg";
 import { Container } from "react-bootstrap";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 const PageHeader = ({ title = "", list = "" }) => {
   return (

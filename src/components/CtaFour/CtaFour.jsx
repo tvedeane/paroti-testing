@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import { Col, Container, Row } from "react-bootstrap";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { getData } from "@/utils/getData";

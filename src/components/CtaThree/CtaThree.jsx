@@ -1,7 +1,7 @@
 import React from "react";
 import bg from "@/assets/images/shapes/cta-3-bg-1-1.png";
 import { Container } from "react-bootstrap";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 const CtaThree = () => {
   return (

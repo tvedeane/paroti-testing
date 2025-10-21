@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import { useRootContext } from "@/Provider/context";
 import MobileNavItems from "./MobileNavItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

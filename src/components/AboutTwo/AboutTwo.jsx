@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import Image from "../Image/Image";
 
 const AboutTwo = () => {

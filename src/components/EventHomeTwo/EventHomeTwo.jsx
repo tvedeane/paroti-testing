@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import loadable from "@loadable/component";
 import Image from "../Image/Image";
 import { useI18next } from "gatsby-plugin-react-i18next";

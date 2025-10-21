@@ -3,7 +3,7 @@ import React from "react";
 import { faComments } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 import Image from "../Image/Image";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { getData } from "@/utils/getData";
