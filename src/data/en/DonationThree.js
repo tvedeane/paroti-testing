@@ -13,7 +13,7 @@ const donationThreeData = {
   cardData: [
     {
       id: 1,
-      link: "/donation-details",
+      link: "/donations-details",
       image: "resources/donation-3-1.png",
       text: "Denounce with righteous indignation and dislike men who are beguiled and by the charms of pleasure.",
       icon: "paroti-icon-organic-food",
@@ -22,7 +22,7 @@ const donationThreeData = {
     },
     {
       id: 2,
-      link: "/donation-details",
+      link: "/donations-details",
       image: "resources/donation-3-2.png",
       text: "Denounce with righteous indignation and dislike men who are beguiled and by the charms of pleasure.",
       icon: "paroti-icon-patient",

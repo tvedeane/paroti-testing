@@ -7,7 +7,7 @@ const donationTwoData = {
   carouselData: [
     {
       id: 1,
-      link: "/donation-details",
+      link: "/donations-details",
       title: "Healthy food",
       text: "When nothing prevents our to we like best, every pleasure to be.",
       icon: "paroti-icon-organic-food donation-card-two__icon",
@@ -16,7 +16,7 @@ const donationTwoData = {
     },
     {
       id: 2,
-      link: "/donation-details",
+      link: "/donations-details",
       title: "Kids education",
       text: "When nothing prevents our to we like best, every pleasure to be.",
       icon: "paroti-icon-organic-food donation-card-two__icon",
@@ -25,7 +25,7 @@ const donationTwoData = {
     },
     {
       id: 3,
-      link: "/donation-details",
+      link: "/donations-details",
       title: "Medical care",
       text: "When nothing prevents our to we like best, every pleasure to be.",
       icon: "paroti-icon-organic-food donation-card-two__icon",
